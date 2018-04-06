@@ -62,12 +62,7 @@ export default class Toast extends Component {
       messageStyles.push(styles.warning, this.props.warningStyle);
     }
     return (
-      <Animated.View
-        style={[
-          styles.container,
-          { opacity: this.state.fadeAnimation }
-        ]}
-      >
+      <Animated.View style={[styles.container, { opacity: this.state.fadeAnimation }]}>
         <View style={messageStyles}>
           {this.props.getMessageComponent(this.state.message, {
             error: this.state.error,
@@ -81,11 +76,7 @@ export default class Toast extends Component {
 
 Toast.defaultProps = {
   getMessageComponent(message) {
-    return (
-      <Text style={this.messageStyle}>
-        {message}
-      </Text>
-    );
+    return <Text style={this.messageStyle}>{message}</Text>;
   }
 };
 

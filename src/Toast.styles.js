@@ -11,7 +11,7 @@ const colors = {
 export default StyleSheet.create({
   container: {
     backgroundColor: colors.transparent,
-    bottom: 100,
+    top: 100,
     zIndex: 100,
     position: 'absolute',
     left: 0,
@@ -32,5 +32,5 @@ export default StyleSheet.create({
   },
   warning: {
     backgroundColor: colors.yellow
-  },
+  }
 });
