@@ -11,7 +11,6 @@ const ViewPropTypes = RNViewPropTypes || View.propTypes;
 export default class Toast extends Component {
   state = {
     fadeAnimation: new Animated.Value(0),
-    shadowOpacity: new Animated.Value(0),
     present: false,
     message: '',
     dismissTimeout: null
@@ -34,7 +33,6 @@ export default class Toast extends Component {
       {
         present: true,
         fadeAnimation: new Animated.Value(0),
-        shadowOpacity: new Animated.Value(0),
         message,
         error,
         warning,
@@ -42,13 +40,11 @@ export default class Toast extends Component {
       },
       () => {
         Animated.timing(this.state.fadeAnimation, { toValue: 1 }).start();
-        Animated.timing(this.state.shadowOpacity, { toValue: 0.5 }).start();
       }
     );
   }
 
   hide() {
-    Animated.timing(this.state.shadowOpacity, { toValue: 0 }).start();
     Animated.timing(this.state.fadeAnimation, { toValue: 0 }).start(() => {
       this.setState({ present: false, message: null, error: false, warning: false, dismissTimeout: null });
     });
@@ -68,9 +64,8 @@ export default class Toast extends Component {
     return (
       <Animated.View
         style={[
-          styles.shadow,
           styles.container,
-          { opacity: this.state.fadeAnimation, shadowOpacity: this.state.shadowOpacity }
+          { opacity: this.state.fadeAnimation }
         ]}
       >
         <View style={messageStyles}>

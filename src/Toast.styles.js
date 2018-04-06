@@ -33,14 +33,4 @@ export default StyleSheet.create({
   warning: {
     backgroundColor: colors.yellow
   },
-  shadow: {
-    elevation: 10,
-    shadowColor: colors.black,
-    shadowOpacity: 0.5,
-    shadowOffset: {
-      height: 0,
-      width: 0
-    },
-    shadowRadius: 5
-  }
 });
